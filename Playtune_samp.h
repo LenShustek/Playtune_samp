@@ -16,7 +16,8 @@
 
 // If you want to use an oscillocope to measure how long our interrupt routine
 // takes, you can configure a pin that outputs a high when it is running.
-#define SCOPE_TEST true // make scope measurements?
+
+#define SCOPE_TEST false // make scope measurements?
 
 #ifdef TEENSY_LC
 #define SCOPE_PIN 4     // board pin

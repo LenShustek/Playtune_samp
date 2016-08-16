@@ -577,7 +577,6 @@ void tune_start_timer(int polltime/*usec*/) {
 #if SCOPE_TEST
   pinMode(SCOPE_PIN, OUTPUT);
   digitalWrite(SCOPE_PIN, 0);
-  pinMode(5, OUTPUT); //TEMP
 #endif
   Timer1.initialize(polltime); // start the timer
   Timer1.attachInterrupt(timer_ISR);
@@ -794,9 +793,7 @@ void timer_ISR(void) {  //**** THE TIMER INTERRUPT COMES HERE ****
     millisecond_interrupt_count = interrupts_per_millisecond;
     // decrement the current score wait counter
     if (tune_playing && scorewait_interrupt_count && --scorewait_interrupt_count == 0) {
-       digitalWriteFast(5, HIGH); //TEMP
      tune_stepscore ();  // end of a score wait, so execute more score commands
-      digitalWriteFast(5, LOW); //TEMP
     }
   }
 
